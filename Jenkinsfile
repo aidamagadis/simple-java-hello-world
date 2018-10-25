@@ -56,7 +56,7 @@ spec:
      stage('Creation Image Docker') {
       steps {
         container('docker') {
-          docker build -t my-app:$BUILD_NUMBER
+          sh docker build -t my-app:$BUILD_NUMBER .
         }
       }
     }
