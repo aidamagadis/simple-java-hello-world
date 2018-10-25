@@ -52,7 +52,21 @@ spec:
         }
       }
     }
-	 
+
+     stage('Creation Image Docker') {
+      steps {
+        container('docker') {
+          docker build -t my-app:$BUILD_NUMBER 
+        }
+      }
+    }
+
+     stage('Run du container Docker') {
+      steps {
+        container('docker') {
+          docker run my-app:$BUILD_NUMBER
+        }
+      }
+    }
 
 }
-
